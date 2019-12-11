@@ -4,6 +4,8 @@
 #else
 #import <React/RCTBridgeModule.h>
 #endif
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 @interface RNSwitchAppIcon : NSObject <RCTBridgeModule>
 
