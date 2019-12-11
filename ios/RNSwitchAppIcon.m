@@ -16,15 +16,23 @@ RCT_EXPORT_METHOD(switchAppIconWithName:(NSString *)name :(RCTResponseSenderBloc
         return;
     }
     
-    if ([iconName isEqualToString:@""]) {
+    if ([name isEqualToString:@""]) {
         name = nil;
+    }
+
+    if (name) {
+        NSString *currentName = [[UIApplication sharedApplication] alternateIconName];
+        if ([currentName isEqualToString:name]) {
+            callback(@[[NSString @""]]);
+            return;
+        }
     }
     
     [[UIApplication sharedApplication] setAlternateIconName:name completionHandler:^(NSError * _Nullable error) {
         if (error) {
             callback(@[@"name is change failed"]);
         } else {
-            callback(@[[NSNull null]]);
+            callback(@[[NSString @""]]);
         }
     }];
 }

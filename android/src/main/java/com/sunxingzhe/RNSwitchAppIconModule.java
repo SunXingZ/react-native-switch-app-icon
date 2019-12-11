@@ -43,17 +43,11 @@ public class RNSwitchAppIconModule extends ReactContextBaseJavaModule {
   public void switchAppIconWithName(String name, Callback callback) {
     final Activity currentActivity = getCurrentActivity();
     if (currentActivity == null) {
-      callback.invoke("activity is null");
-    } else if (name.equals("")) {
-      callback.invoke("name is empty string");
-      ComponentName currentComponentName = currentActivity.getComponentName();
-      if (!currentComponentName.getClassName().equals(this.packageName)) {
-        ComponentName activityAlias = new ComponentName(this.packageName, this.packageName);
-        disableComponent(currentComponentName);
-        enableComponent(activityAlias);
-        callback.invoke("");
-      }
+      callback.invoke("currentActivity is null");
     } else {
+      if (name.equals("")) {
+        name = "MainActivity";
+      }
       ComponentName currentComponentName = currentActivity.getComponentName();
       if (!currentComponentName.getClassName().equals(this.packageName + "." + name)) {
         ComponentName activityAlias = new ComponentName(this.packageName, this.packageName + "." + name);
