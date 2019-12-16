@@ -23,7 +23,7 @@ RCT_EXPORT_METHOD(switchAppIconWithName:(NSString *)name :(RCTResponseSenderBloc
     if (name) {
         NSString *currentName = [[UIApplication sharedApplication] alternateIconName];
         if ([currentName isEqualToString:name]) {
-            callback(@[[NSString @""]]);
+            callback(@[@""]);
             return;
         }
     }
@@ -32,7 +32,7 @@ RCT_EXPORT_METHOD(switchAppIconWithName:(NSString *)name :(RCTResponseSenderBloc
         if (error) {
             callback(@[@"name is change failed"]);
         } else {
-            callback(@[[NSString @""]]);
+            callback(@[@""]);
         }
     }];
 }
