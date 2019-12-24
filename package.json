@@ -1,7 +1,7 @@
 
 {
   "name": "@sunxingzhe/react-native-switch-app-icon",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "react-native-switch-app-icon",
   "main": "index.js",
   "scripts": {
